@@ -1,0 +1,21 @@
+ban=0
+ban1=0
+N=10000
+p=[]
+archivo=open("random_words.txt","r")
+lista=archivo.readlines()
+arr=lista[:]
+#print("%s"%arr)
+for k in range(0,N-1):
+    for j in range(0,(N-1)-k):
+        ban1+=1
+        if arr[j+1]<arr[j]:	
+            p=arr[j][:]
+            arr[j]=arr[j+1][:]
+            arr[j+1]=p[:]
+            ban+=1
+    if ban==0:
+        break
+print("%i ITERACIONES"%ban1)            
+print("%i CAMBIOS"%ban)
+#print("%s"%arr)

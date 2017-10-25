@@ -1,0 +1,44 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h> 
+
+int main()
+
+{
+	int N=10000,j=0,k=0,ban=0;
+	char arr[N][256]={0};
+	char str[256],p[256];
+	
+	FILE *f=fopen("random_words.txt","r");
+	if (!f)
+	{	
+		perror("Error al abrir el archivo");		
+	}
+
+	int i=0;
+	while(fgets(str,256,f))
+	{
+		strcpy(arr[i],str);
+		printf("%s",arr[i]);
+		i++;	
+	}	
+	
+	for(j=0;j<10000;j++)
+	{
+		for(k=j+1;k<10000;k++)
+		{
+			if(strcmp(arr[j],arr[j])>0)	
+			{
+				strcpy(p,arr[k]);
+				strcpy(arr[k],arr[j]);
+				strcpy(arr[j],p);
+			}
+		}
+	}
+	
+	
+	fclose(f);
+	return 0;
+}
