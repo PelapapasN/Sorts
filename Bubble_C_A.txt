@@ -1,0 +1,33 @@
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+#include <stdio.h>
+#include <conio.h>
+#include<stdlib.h> 
+
+int main ()
+{
+	int i=0,j=0,A[10000],a=0,p=0;
+	srand (time(NULL));
+	printf("\n");
+	for(i=0;i<10000;i++)
+	{
+		A[i]=rand()%100;
+	}
+	for(i=0;i<10000;i++)
+	{
+			for(j=0;j<10000;j++)
+		{
+			if(A[j]>A[j+1])
+			{
+				a=A[j+1];
+				A[j+1]=A[j];
+				A[j]=a;	
+			}		
+		}		
+	}
+	/*for(i=0;i<10000;i++)
+	{
+		printf("%i\n",A[i]);
+	}*/
+}
